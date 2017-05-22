@@ -15,6 +15,6 @@ Tedrahcu.detect('hey') #=> 'ASCII'
 
 ```sh
 brew install uchardet
-yum -y install uchardet-dev
+yum install -y uchardet-devel
 apt install libuchardet-dev
 ```
