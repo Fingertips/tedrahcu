@@ -1,0 +1,54 @@
+require:
+  - rubocop-performance
+
+AllCops:
+  NewCops: disable
+  TargetRubyVersion: 3.2
+  Exclude:
+    # Schema is auto-generated and should not trigger Rubocop.
+    - db/schema.rb
+    - vendor/**/*
+
+Layout/LineLength:
+  Max: 100
+
+Metrics/BlockLength:
+  Exclude:
+    # Long blocks in tests are not ideal, but also not really a problem.
+    - test/**/*_test.rb
+
+Metrics/AbcSize:
+  Exclude:
+    - test/**/*.rb
+
+Metrics/ClassLength:
+  Exclude:
+    # Long classes are alright in test files.
+    - test/**/*_test.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - test/**/*.rb
+
+Metrics/ModuleLength:
+  Exclude:
+    # Long modules are alright in test support files.
+    - test/support/*
+
+Style/AsciiComments:
+  Enabled: false
+    
+Style/Documentation:
+  Exclude:
+    # Test classes don't require documentation.
+    - test/**/*.rb
+
+Style/GlobalVars:
+  Exclude:
+    # Global variables are how you configure compiler flags.
+    - ext/extconf.rb
+
+Style/MixinUsage:
+  Exclude:
+    # Bin scripts include modules into the main context.
+    - bin/*
