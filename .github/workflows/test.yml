@@ -1,0 +1,12 @@
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: ruby:3.2
+    steps:
+      - run: apt update
+      - run: apt install -y libuchardet-dev
+      - run: gem install rubocop rubocop-performance
+      - uses: actions/checkout@v4
+      - run: rake
+      - run: rubocop
