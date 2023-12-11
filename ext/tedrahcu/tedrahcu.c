@@ -27,7 +27,7 @@ static VALUE tedrahcu_detect(VALUE self, VALUE input)
   return result;
 }
 
-void Init_tedrahcu()
+void Init_tedrahcu(void)
 {
   VALUE mRingcurl;
 
